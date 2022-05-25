@@ -1,0 +1,645 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+body {
+    padding: 0 15%;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    position: relative;
+    z-index: 1;
+
+
+}
+
+#black {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    left: 0;
+    display: none;
+}
+
+/* Header section */
+header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid hsl(220, 14%, 75%);
+    height: 10vh;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+.menu{
+    display: none;
+}
+
+header img:nth-child(4) {
+    margin-left: auto;
+
+}
+
+header img:nth-child(4):hover {
+    cursor: pointer;
+
+}
+
+#icon-quantity {
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 1em;
+    font-size: smaller;
+    color: white;
+    min-width: 2em;
+    text-align: center;
+    position: relative;
+    top: -8px;
+    right: 8px;
+    display: none;
+}
+
+.icon-user {
+    margin-left: 1em;
+    max-width: 3em;
+    border-radius: 2em;
+}
+
+.icon-user:hover {
+    cursor: pointer;
+    border: hsl(26, 100%, 55%) 3px solid;
+
+}
+
+nav {
+    padding-left: 5px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+nav div {
+    display: flex;
+    align-items: flex-start;
+
+}
+nav img{
+    display: none;
+}
+
+nav div:hover {
+    border-bottom: 2px solid hsl(26, 100%, 55%);
+}
+
+nav div a {
+    text-decoration: none;
+    color: hsl(219, 9%, 45%);
+    margin: 2em 1em;
+    height: 100%;
+
+}
+
+/*   cart shop style*/
+#cart-shop {
+    background-color: white;
+    min-height: 28%;
+    width: 22em;
+    position: absolute;
+    top: 4.2em;
+    right: 6em;
+    border-radius: 1em;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    visibility: hidden;
+
+}
+
+#empty-cart {
+    align-self: center;
+    justify-self: center;
+
+}
+
+#shop-details {
+    margin-top: 0;
+    display: none;
+    grid-template-areas:
+        "img name name name icono"
+        "img info cantidad precio icono"
+        "button button button button button";
+    padding: 10px;
+    align-items: center;
+    grid-template-rows: 1fr 1fr 2fr;
+
+}
+
+#checkout {
+    grid-area: button;
+    width: 100%;
+    border-radius: 0.5em;
+    align-self: start;
+    max-height: 65%;
+    margin-top: 2em;
+}
+
+#delete {
+    grid-area: icono;
+    cursor: pointer;
+}
+
+#total-price {
+    grid-area: precio;
+    margin-top: 0;
+    color: hsl(220, 13%, 13%);
+    font-weight: 700;
+}
+
+#total-quantity {
+    grid-area: cantidad;
+    margin-top: 0;
+    color: hsl(219, 9%, 45%);
+
+}
+
+#static-info {
+    grid-area: info;
+    margin-top: 0;
+    color: hsl(219, 9%, 45%);
+}
+
+#product-name {
+    grid-area: name;
+    color: hsl(219, 9%, 45%);
+    margin-bottom: 0;
+}
+
+#shop-thumbnail {
+    max-height: 4em;
+    max-width: 4em;
+    border-radius: 0.5em;
+    grid-area: img;
+}
+
+h2 {
+    padding: 1em 0.5em;
+    margin-bottom: 0;
+    margin-top: 0.2em;
+    border-bottom: 1px solid hsl(220, 14%, 75%);
+    font-size: medium;
+}
+
+/* Main section */
+main {
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+    justify-content: space-around;
+}
+
+#main-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#main-container-clone {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 35%;
+    z-index: 3;
+    display: none;
+
+}
+
+.lightbox-container {
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-container .lightbox-item {
+    background-image: url(/images/image-product-1.jpg);
+    border-radius: 2em;
+    background-position: center center;
+    background-size: cover;
+    width: 30%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    position: relative;
+}
+
+
+.lightbox-item button {
+    font-size: 1.8rem;
+   margin: -1em;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    width: 2em;
+    height: 2em;
+    padding: 10px;
+}
+
+.dd {
+    position: absolute;
+    top: -25px;
+    right: -15px;
+}
+
+.main-image-class {
+    width: 70%;
+    border-radius: 1em;
+
+}
+
+.thumbnails-clone {
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.thumbnails {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+
+}
+
+#right {
+
+    width: 40%;
+}
+
+
+
+input[type="radio"] {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5em;
+    appearance: none;
+    cursor: pointer;
+
+
+}
+
+input[type="radio"]:checked:before {
+    content: '';
+    width:calc(80px - 0.3%);
+    height:calc(80px - 0.3%);
+    border-radius: 0.5em;
+    border: hsl(26, 100%, 55%) 0.2em solid;
+    position: absolute;
+
+
+
+
+}
+
+input[type="radio"]:checked {
+    opacity: 0.6;
+
+}
+
+input[type="radio"]:hover {
+    opacity: 0.7;
+}
+
+#image1 {
+    background: url(images/image-product-1-thumbnail.jpg);
+    background-size: cover;
+
+}
+
+#image2 {
+    background: url(images/image-product-2-thumbnail.jpg);
+    background-size: cover;
+
+}
+
+#image3 {
+    background: url(images/image-product-3-thumbnail.jpg);
+    background-size: cover;
+}
+
+#image4 {
+    background: url(images/image-product-4-thumbnail.jpg);
+    background-size: cover;
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 0;
+}
+
+h3 {
+    color: hsl(26, 100%, 55%);
+}
+
+p {
+    font-size: 16px;
+    color: hsl(219, 9%, 45%);
+    font-weight: 400;
+}
+
+#prices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+#prices * {
+    margin-bottom: 0;
+    padding-left: 0;
+
+}
+
+#prices h2 {
+    margin-bottom: 0;
+    font-size: larger;
+    border: none;
+}
+
+#prices h3 {
+    background-color: hsl(25, 100%, 94%);
+    color: hsl(26, 100%, 55%);
+    padding: 5px;
+    margin-left: 1em;
+    border-radius: 0.5em;
+    margin: 0;
+}
+
+#old-price {
+    margin-top: 0;
+    color: hsl(220, 14%, 75%);
+    text-decoration: line-through;
+
+}
+
+#plus,
+#minus {
+    cursor: pointer;
+}
+
+#shop {
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+}
+
+#shop *:not(img) {
+    border-radius: 1em;
+}
+
+.ladd-cart {
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+    border: 10px;
+    box-shadow: 2px 2px 5px hsl(25, 100%, 94%);
+    padding: 10px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.ladd-cart:hover {
+    background-color: hsl(26, 97%, 74%);
+    cursor: pointer;
+
+}
+
+#shop button * {
+    margin: 0 10px;
+}
+
+#quantity {
+    width: 40%;
+    background-color: hsl(223, 64%, 98%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 10px;
+}
+
+#quantity p {
+    color: black;
+}
+
+#quantity button {
+    background-color: hsl(223, 64%, 98%);
+    border: 0;
+    box-shadow: none;
+}
+
+#quantity button:hover {
+    background-color: hsl(223, 64%, 98%);
+    border: 0;
+    box-shadow: none;
+}
+
+.attribution {
+    background-color: hsl(220, 14%, 75%);
+}
+@media only screen and (max-width: 1200px) {
+
+main{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 130vh;
+}
+#right{
+    width: 100%;
+} 
+
+#main-container{
+    width: 80%;
+}
+}
+
+@media only screen and (max-width: 900px) {
+    body{
+        padding: 0;
+    }
+    header{
+        margin-bottom: 0;
+    }
+.menu{
+    background-color: white;
+    border: none;
+}
+    main {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    #right {
+        width: 100%;
+    }
+    #main-container,
+    #thumbnails,
+    #thumbails-clone,
+    .thumbnails-clone ,
+    .dd{
+        display: none;
+    }
+
+#shop p{
+    text-align: center;
+}
+    
+    #main-container-clone{
+        display: flex;
+        position: relative;
+        left: 0;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+    }
+    main{
+        justify-content: flex-start;
+        width: 100vw;
+        height: 110vh;
+    }
+    .lightbox-container{
+        position: relative;
+        width: 100%;
+        height: 100%;
+      
+        
+    }
+    .lightbox-container .lightbox-item{
+        width: 100%;
+        border-radius: 0;
+        height: 100%;
+        background-position: center;
+    background-size:cover;
+   
+
+
+    }
+    .lightbox-item button {
+        font-size: 1.5rem;
+        margin: 0.5rem;
+        border-radius: 50%;
+        border: none;
+        width: 1.5em;
+        height: 1.5em;
+        padding: 5px;
+    }
+    
+    nav{
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: fixed;
+        left: 0;
+        top: 0;
+        align-items: flex-start;
+        z-index: 5;
+        width: 50%;
+        
+     }
+     nav img{
+        display: block;
+        margin: 1.5em 0.5em;
+    }
+    nav div a{
+        margin: 1em;
+    }
+    
+    .logo{
+        margin:0 1em;
+    }
+    
+    #cart-shop{
+        z-index: 2;
+        
+        
+    }
+    #black{
+        display: none;
+        z-index: 4;
+        left: 3em;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+   body{
+       padding:0;
+   }
+   #black{
+       display: none;
+       z-index: 4;
+   }
+    
+    header{
+        margin-bottom: 0;
+        padding: 0.5em;
+        height: 8vh;
+    }
+   #right *{
+
+       padding-left: 2px;
+   }
+    .menu{
+        display: block;
+    }
+    
+    #main-container,
+    #thumbnails,
+    #thumbails-clone,
+    .thumbnails-clone ,
+    .dd{
+        display: none;
+    }
+    
+    #shop{
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        font-size:xx-large;
+        font-weight: 700;
+    }
+    #shop *:not(img) {
+        width: 95%;
+    }
+    .ladd-cart{
+        margin: 5% 0;
+    }
+    #cart-shop{
+        z-index: 4;
+        right: 0;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 19em;
+        
+    }
+}

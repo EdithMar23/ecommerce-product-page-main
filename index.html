@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css" type="text/css">
+
+  <title>Frontend Mentor | E-commerce product page</title>
+
+
+<body>
+  <div id="black"></div>
+  <header>
+    <button class="menu" id="menu"><img src="images/icon-menu.svg"></button>
+    <img src="images/logo.svg" class="logo">
+    <nav>
+      <div><img src="images/icon-close.svg" id="closeNav"></div>
+      <div><a href="#"> Collections</a></div>
+      <div><a href="#"> Men</a></div>
+      <div><a href="#"> Women</a></div>
+      <div><a href="#">About</a></div>
+      <div><a href="#">Contact</a></div>
+    </nav>
+    <img src="images/icon-cart.svg" id="cart-shop-button">
+    <div id="icon-quantity">0</div>
+    <img src="images/image-avatar.png" class="icon-user">
+  </header>
+  <div id="cart-shop">
+    <h2> Cart </h2>
+    <p id="empty-cart"> Your cart is empty</p>
+    <div id="shop-details">
+      <img id="shop-thumbnail" src="images/image-product-1-thumbnail.jpg">
+      <p id="product-name">Fall Limited Edition Sneakers</p>
+      <p id="static-info">$125.00 x</p>
+      <p id="total-quantity">0</p>
+      <p id="total-price"> 0</p>
+      <img src="images/icon-delete.svg" id="delete">
+      <button id="checkout" class="ladd-cart"> Checkout </button>
+    </div>
+  </div>
+  <main>
+    <aside id="main-container">
+
+      <img id="main-image" class="main-image-class" src="images/image-product-1.jpg">
+      <div id="thumbnails" class="thumbnails">
+
+        <input type="radio" id="image1" name="image" checked>
+        <input type="radio" id="image2" name="image">
+
+        <input type="radio" id="image3" name="image">
+        <input type="radio" id="image4" name="image">
+
+      </div>
+
+
+    </aside>
+    <aside id="main-container-clone">
+
+
+
+
+      <div class="lightbox-container">
+
+        <div class="lightbox-item slider-img">
+          <button id="button-close" class="dd"><img src="images/icon-close.svg" id="close" alt=""></button>
+          <button id="button-previous"><img src="images/icon-previous.svg" id="previous" alt=""></button>
+          <button id="button-next"> <img src="images/icon-next.svg" id="next" alt=""></button>
+
+        </div>
+        <div id="thumbnails-clone" class="thumbnails-clone">
+
+          <input type="radio" id="image1" name="image">
+          <input type="radio" id="image2" name="image">
+
+          <input type="radio" id="image3" name="image">
+          <input type="radio" id="image4" name="image">
+
+        </div>
+      </div>
+
+
+
+    </aside>
+    <aside id="right">
+      <h3>Sneaker Company</h3>
+
+      <h1>Fall Limited Edition Sneakers</h1>
+
+      <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+      <div id="prices">
+        <h2>$125.00</h2>
+        <h3>50%</h3>
+      </div>
+      <h3 id="old-price">$250.00</h3>
+      <div id="shop">
+        <div id="quantity">
+          <button value="-1" id="minus-button"><img src="images/icon-minus.svg" alt="icon minus" id="minus"></button>
+          <p id="numberQuantity">0</p>
+          <button value="1" id="plus-button"><img src="images/icon-plus.svg" alt="icon plus" id="plus"></button>
+        </div>
+        <button id="add-cart" class="ladd-cart">
+          <img id="cart" src="/images/icon-cart.svg">
+          Add to cart</button>
+      </div>
+    </aside>
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Edith Márquez</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
